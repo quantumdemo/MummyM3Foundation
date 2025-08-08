@@ -1,0 +1,566 @@
+/* --- Table of Contents --- */
+/* 1.  Variables & Global Styles */
+/* 2.  Typography */
+/* 3.  Header & Navigation */
+/* 4.  Hero Section */
+/* 5.  Mission Section */
+/* 6.  About Section */
+/* 7.  Quote Section */
+/* 8.  Gallery Section */
+/* 9.  Contact Section */
+/* 10. Footer */
+/* 11. Buttons & Forms */
+/* 12. Animations */
+/* 13. Responsive Design */
+
+/* --- 1. Variables & Global Styles --- */
+:root {
+    --primary-color: #8d38a1;      /* Main purple */
+    --secondary-color: #9a48b9;    /* Lighter purple accent */
+    --background-color: #171517;   /* Dark background */
+    --text-color: #363333;         /* Dark gray for text */
+    --accent-color: #fdbf45;       /* Golden yellow heart */
+    --footer-bg-color: #a9000f;    /* Deep red accent */
+    --white: #ffffff;              /* Standard white */
+    --light-gray: #d3d3d3;         /* Light gray for borders/backgrounds */
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 2. Typography --- */
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 1.5rem; }
+
+p { margin-bottom: 1rem; }
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* --- 3. Header & Navigation --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--light-gray);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    stroke: var(--primary-color);
+    margin-top: 1rem;
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu ul li a {
+    color: var(--text-color);
+    padding: 5px 15px;
+    margin: 0 5px;
+    position: relative;
+    transition: color 0.3s;
+}
+
+.nav-menu ul .nav-link {
+    margin-top: 0.5rem;
+}
+
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 15px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--primary-color);
+}
+
+.nav-menu ul li a:hover::after {
+    width: calc(100% - 30px);
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: var(--accent-color);
+    transition: all 0.3s ease-in-out;
+    transform-origin: 1px;
+}
+
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--light-gray);
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+    display: flex;
+}
+
+.mobile-nav a {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: var(--text-color);
+}
+
+.mobile-nav a:hover {
+    color: var(--white);
+    background-color: var(--primary-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* --- 4. Hero Section --- */
+.hero-section {
+    height: 100vh;
+    background: url('/images/bg-1.png') no-repeat center center/cover;
+    position: relative;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-attachment: fixed;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-section h1 {
+    color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.hero-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.hero-buttons #donate {
+    margin-top: 30px;
+    position: inherit;
+    overflow: hidden;
+}
+
+.hero-buttons #volunteer {
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Infinity symbol animation */
+.hero-buttons #volunteer::before {
+    content: "";
+    position: absolute;
+    top: -1px;  
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(-90deg, transparent, var(--primary-color), transparent);
+    background-size: 200% 100%;
+    animation: infinityLoop 3s steps(4) infinite;
+    z-index: -1;
+}
+
+@keyframes infinityLoop {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* --- 5. Mission Section --- */
+.mission-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.mission-section .section-subtitle {
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.mission-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+    border: 2px solid transparent;
+}
+
+.mission-card i {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.mission-card h3 {
+    color: var(--primary-color);
+}
+
+.mission-card p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: var(--accent-color);
+}
+
+/* --- 6. About Section --- */
+.about-section {
+    padding: 80px 0;
+    background: var(--light-gray);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.about-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+}
+
+.about-bio {
+    flex: 1;
+}
+
+/* --- 7. Quote Section --- */
+.quote-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--accent-color);
+    max-width: 600px;
+    margin: 20px auto;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.gold-divider {
+    border: 0;
+    height: 2px;
+    background: var(--accent-color);
+    width: 100px;
+    margin: 0 auto;
+}
+
+/* --- 8. Gallery Section --- */
+.gallery-section {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.carousel-wrapper {
+    position: relative;
+}
+
+.gallery-carousel {
+    display: flex;
+    overflow-x: hidden; /* Changed from auto to hidden */
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.carousel-item img {
+    width: 350px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    user-select: none; /* Prevent image selection on drag */
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* --- 9. Contact Section --- */
+.contact-section {
+    padding: 80px 0;
+    background: var(--light-gray);
+    text-align: center;
+}
+
+/* --- 10. Footer --- */
+.footer {
+    background: var(--secondary-color);
+    color: var(--light-gray);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-icons a {
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--white);
+}
+
+.footer a {
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* --- 11. Buttons & Forms --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-secondary {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-color);
+    color: var(--background-color);
+}
+
+.btn-primary-mobile {
+    background: var(--primary-color);
+    color: var(--background-color);
+    border: 2px solid var(--accent-color);
+    padding: 15px 30px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 40px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(142, 53, 74, 0.3);
+}
+
+/* --- 12. Animations --- */
+.btn-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+/* --- 13. Responsive Design --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+
+   .nav-menu { display: none; }
+    .hamburger { display: block; } 
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 200px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .nav-menu { display: none; }
+    .hamburger { display: block; }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%;
+    }
+}
